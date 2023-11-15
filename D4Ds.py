@@ -76,7 +76,7 @@ def usageConsole():
 def usageHelp():
     writer('{:<25} {:<}'.format('Commands', 'Usage'), pystyle.Colors.yellow_to_red, 0.08)
     print()
-    writer('----------------------------', pystyle.Colors.purple_to_red, 0.08)
+    writer('-----------------------------------', pystyle.Colors.purple_to_red, 0.08)
     print()
     writer('{:<25} {:<}'.format('--help', 'show this message'), pystyle.Colors.green_to_cyan, 0)
     print()
