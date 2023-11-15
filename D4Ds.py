@@ -91,7 +91,7 @@ if "--host" in lis:
     
     if "--port" in lis:
         host = lis[lis.index('--host')+1]
-        port = int(lis[lis.index('--host')+2])
+        port = int(lis[lis.index('--host')+3])
         for i in range(100):
             t = threading.Thread(target=run, args=[i])
             t.start()
@@ -106,7 +106,7 @@ if "--domain" in lis:
     
     if "--port" in lis:
         host = socket.gethostbyname(lis[lis.index('--domain')+1])
-        port = int(lis[lis.index('--domain')+2])
+        port = int(lis[lis.index('--domain')+3])
         for i in range(100):
             t = threading.Thread(target=run, args=[i])
             t.start()
