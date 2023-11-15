@@ -76,7 +76,7 @@ def usageConsole():
 def usageHelp():
     writer('{:<25} {:<}'.format('Commands', 'Usage'), pystyle.Colors.yellow_to_red, 0.08)
     print()
-    writer('-----------------------------------', pystyle.Colors.purple_to_red, 0.08)
+    writer('----------------------------', pystyle.Colors.purple_to_red, 0.08)
     print()
     writer('{:<25} {:<}'.format('--help', 'show this message'), pystyle.Colors.green_to_cyan, 0)
     print()
@@ -86,13 +86,12 @@ def usageHelp():
     print()
     writer('{:<25} {:<}'.format('--domain', 'set domain to get host: --domain www.google.com'), pystyle.Colors.green_to_cyan, 0)
     print()
-    print()
 
 if "--host" in lis:
     
     if "--port" in lis:
         host = lis[lis.index('--host')+1]
-        port = lis[lis.index('--host')+2]
+        port = int(lis[lis.index('--host')+2])
         for i in range(100):
             t = threading.Thread(target=run, args=[i])
             t.start()
@@ -107,7 +106,7 @@ if "--domain" in lis:
     
     if "--port" in lis:
         host = socket.gethostbyname(lis[lis.index('--domain')+1])
-        port = lis[lis.index('--domain')+2]
+        port = int(lis[lis.index('--domain')+2])
         for i in range(100):
             t = threading.Thread(target=run, args=[i])
             t.start()
