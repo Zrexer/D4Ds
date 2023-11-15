@@ -86,6 +86,7 @@ def usageHelp():
     print()
     writer('{:<25} {:<}'.format('--domain', 'set domain to get host: --domain www.google.com'), pystyle.Colors.green_to_cyan, 0)
     print()
+    print()
 
 if "--host" in lis:
     
